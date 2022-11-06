@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+    body{width:auto;}
+    .container{width: 170px;}
+    .left{float:left;}
+    html{
+         height: 100%;
+         font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
+<script>
+    function ajaxRequest()
+    {
+        return false;
+        var xmlhttp;
+        xmlhttp=new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function()
+        {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+        var item = JSON.parse(this.responseText);
+        alert(item.Value);
+        }
+        }
+        xmlhttp.open("GET","/data",true);
+        
+        xmlhttp.send()
+    }
+</script>
+</head>
+<body>
+        <div align="center">
+        <div class="container">
+        <h1>猜数游戏</h1>
+        <form method="post">
+            <label class="left">Input number:</label><br />
+            <input type="text" name="value" class="left"><br />
+            <input type="submit" value="Submit" class="left">
+        </form>
+        </div>
+        </div>
+        <br>
+</body>
+</html>
